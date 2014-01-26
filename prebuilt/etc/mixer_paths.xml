@@ -38,16 +38,6 @@
     <ctl name="Left Speaker Mixer DACL Switch" value="0"/>
   </path>
   
-  <path name="hdmi">
-    <ctl name="Speaker Switch" value="0" />
-  </path>
-
-  <path name="dock">
-    <ctl name="AUX Switch" value="1" />
-    <ctl name="OUT Playback Switch" value="1" />
-    <ctl name="OUT Channel Switch" value="1" />
-  </path>
-
   <path name="main-mic-top">
     <ctl name="Int Mic Switch" value="1" />
     <ctl name="HPF Switch" value="1"/>
