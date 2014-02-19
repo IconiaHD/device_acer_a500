@@ -40,7 +40,7 @@ USE_ALL_OPTIMIZED_STRING_FUNCS := true
 # kernel
 #TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.6
 #TARGET_KERNEL_SOURCE := kernel/acer/a200
-#TARGET_KERNEL_CONFIG := jellyplay_picasso_e_defconfig
+TARGET_KERNEL_CONFIG := jellyplay_picasso_e_defconfig
 TARGET_PREBUILT_KERNEL := device/acer/a200/prebuilt/zImage
 BOARD_KERNEL_CMDLINE :=
 BOARD_KERNEL_BASE := 0x10000000
@@ -62,18 +62,27 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 
 # Display
 USE_OPENGL_RENDERER    := true
-BOARD_EGL_CFG          := device/acer/a200/prebuilt/etc/egl.cfg
+#BOARD_EGL_CFG          := device/acer/a200/prebuilt/etc/egl.cfg
 BOARD_NO_ALLOW_DEQUEUE_CURRENT_BUFFER := true
 BOARD_USE_SKIA_LCDTEXT := true
 BOARD_USES_HGL := true
 BOARD_USES_OVERLAY := true
 BOARD_EGL_NEEDS_LEGACY_FB := true
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+BOARD_EGL_WORKAROUND_BUG_10194508 := true
+SKIP_SET_METADATA := true
+BOARD_USE_MHEAP_SCREENSHOT := true
+BOARD_USES_HWCOMPOSER := true
+BOARD_NEEDS_OLD_HWC_API := true
+
+
 
 # Audio
 #TARGET_PROVIDES_LIBAUDIO := true
 #BOARD_USES_AUDIO_LEGACY := true
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := false
+BOARD_OMX_NEEDS_LEGACY_AUDIO := true
 
 # GPS
 BOARD_HAVE_GPS := true
@@ -98,9 +107,16 @@ BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
 BOARD_WLAN_DEVICE                := bcmdhd
 WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA          := "/system/vendor/firmware/fw_bcmdhd.bin"
-WIFI_DRIVER_FW_PATH_P2P          := "/system/vendor/firmware/fw_bcmdhd_p2p.bin"
+#WIFI_DRIVER_FW_PATH_P2P          := "/system/vendor/firmware/fw_bcmdhd_p2p.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/system/vendor/firmware/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_MODULE_ARG           := "firmware_path=/system/vendor/firmware/fw_bcmdhd.bin nvram_path=/system/vendor/firmware/bcmdhd.cal iface_name=wlan0"
+
+# Misc flags
+COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
+NEED_WORKAROUND_CORTEX_A9_745320 := true
+
+# Sensors
+SENSORS_NEED_SETRATE_ON_ENABLE := true
 
 # Partition
 BOARD_BOOTIMAGE_PARTITION_SIZE      := 8388608

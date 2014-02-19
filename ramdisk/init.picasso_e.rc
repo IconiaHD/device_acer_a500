@@ -8,11 +8,21 @@ on init
     # See storage config details at http://source.android.com/tech/storage/
     mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage/emulated 0555 root root
-    mkdir /storage/sdcard1 0000 system system
-    mkdir /storage/usbdisk0 0000 system system
+    #mkdir /storage/sdcard1 0000 system system
+    #mkdir /storage/usbdisk0 0000 system system
+
+    #External storage directories
+    mkdir /mnt/media_rw/sdcard 0700 media_rw media_rw
+    mkdir /storage/sdcard 0700 root root
+    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
+    mkdir /storage/sdcard1 0700 root root
+    mkdir /mnt/media_rw/usbdisk0 0700 media_rw media_rw
+    mkdir /storage/usbdisk0 0700 root root
+
+
 
     export EXTERNAL_STORAGE /storage/emulated/legacy
-    export SECONDARY_STORAGE /storage/sdcard1
+    export SECONDARY_STORAGE /storage/sdcard:/storage/sdcard1:/storage/usbdisk
     export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
     export EMULATED_STORAGE_TARGET /storage/emulated
 
@@ -21,6 +31,7 @@ on init
     symlink /storage/emulated/legacy /mnt/sdcard
     symlink /storage/emulated/legacy /storage/sdcard0
     symlink /mnt/shell/emulated/0 /storage/emulated/legacy
+    symlink /storage/emulated/legacy /storage/emulated/0
 
 
     symlink /storage/sdcard1 /mnt/external_sd
@@ -41,6 +52,8 @@ on fs
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
     setprop ro.crypto.fuse_sdcard true
 
+    symlink /dev/block/platform/sdhci-tegra.2/by-name/logo.bin /dev/block/platform/sdhci-tegra.2/by-name/logo
+
     # virtual sdcard daemon running as media_rw (1023)
     service sdcard /system/bin/sdcard /data/media /mnt/shell/emulated 1023 1023
     class late_start
@@ -54,7 +67,7 @@ on post-fs-data
     chmod 777 /data/misc/wifi/wpa_supplicant.conf
 
     # we will remap this as /storage/sdcard0 with the sdcard fuse tool
-    #chown media_rw media_rw /data/media
+    chown media_rw media_rw /data/media
 
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
@@ -109,7 +122,7 @@ on boot
     chmod system system /sys/bus/iio/devices/device0/proxim_ir
 
 # 4.3 requires
-    chmod 0644 /proc/cmdline
+    chmod 0666 /proc/cmdline
 
 # Power management settings
     # cpufreq defaults
@@ -187,7 +200,7 @@ on property:ro.carrier=wifi-only
 
 #   A200 mod	
 service wpa_supplicant /system/bin/wpa_supplicant \
-    -Dnl80211 -iwlan0 -puse_p2p_group_interface=1 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin
+    -Dnl80211 -iwlan0 -puse_p2p_group_interface=1 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin -O/data/misc/wifi/sockets -g@android:wpa_wlan0
 #   -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin
 #   we will start as root and wpa_supplicant will switch to user wifi
 #   after setting up the capabilities required for WEXT
@@ -344,4 +357,16 @@ service tf_daemon /system/bin/tf_daemon -storageDir /data/tf -d
 on property:tf.enable=y
     mkdir /data/tf
     start tf_daemon
+
+service fuse_sdcard /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard /storage/sdcard
+    class late_start
+    disabled
+
+service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
+    class late_start
+    disabled
+
+service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/usbdisk0 /storage/usbdisk0
+    class late_start
+    disabled
 
