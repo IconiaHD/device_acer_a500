@@ -29,6 +29,7 @@ TARGET_ARCH_VARIANT_FPU := vfpv3-d16
 TARGET_ARCH := arm
 TARGET_CPU_SMP := true
 
+ARCH_ARM_USE_NON_NEON_MEMCPY := true
 ARCH_ARM_HIGH_OPTIMIZATION := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
@@ -125,31 +126,4 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE    := 367001600
 BOARD_USERDATAIMAGE_PARTITION_SIZE  := 13864271872
 BOARD_FLASH_BLOCK_SIZE              := 131072
 
-# SELinux policies
-HAVE_SELINUX := true
-POLICYVERS   := 24
-
-BOARD_SEPOLICY_DIRS := \
-   device/acer/a200/selinux
-
-BOARD_SEPOLICY_UNION := \
-    file_contexts \
-    app.te \
-    device.te \
-    drmserver.te \
-    file.te \
-    genfs_contexts \
-    init.te \
-    media_app.te \
-    release_app.te \
-    mediaserver.te \
-    platform_app.te \
-    sensors_config.te \
-    shared_app.te \
-    surfaceflinger.te \
-    system_app.te \
-    system.te \
-    wpa_socket.te \
-    wpa.te \
-    zygote.te
 
