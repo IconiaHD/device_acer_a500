@@ -139,9 +139,9 @@ ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.strictmode.visual=0
 
 PRODUCT_CHARACTERISTICS := tablet
 
-# Bluetooth config file
-PRODUCT_COPY_FILES += \
-    system/bluetooth/data/main.nonsmartphone.conf:system/etc/bluetooth/main.conf \
+# Bluetooth config file (IconiaHD : todo : find a solution !)
+#PRODUCT_COPY_FILES += \
+#    system/bluetooth/data/main.nonsmartphone.conf:system/etc/bluetooth/main.conf \
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
