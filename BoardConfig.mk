@@ -50,7 +50,7 @@ BOARD_PAGE_SIZE := 0x00000800
 # Recovery
 #TARGET_RECOVERY_KERNEL := device/acer/a200/recovery/recovery_kernel
 #TARGET_RECOVERY_FSTAB := device/acer/a200/recovery/recovery.fstab
-TARGET_RECOVERY_FSTAB := device/acer/a200/ramdisk/fstab.picasso_e
+TARGET_RECOVERY_FSTAB := device/acer/a200/ramdisk/fstab.picasso
 RECOVERY_FSTAB_VERSION := 2
 
 TARGET_USERIMAGES_USE_EXT4  := true
