@@ -1,17 +1,9 @@
-# Android fstab file.
-#<src> <mnt_point>  <type> <mnt_flags>  <fs_mgr_flags>
-# The filesystem that contains the filesystem checker binary (typically /system) cannot
-# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
-
-# Init mount points
-/dev/block/mmcblk0p3	/system	ext4	ro	wait
-/dev/block/mmcblk0p4	/cache	ext4	noatime,nosuid,nodev,nomblk_io_submit,errors=panic	wait
-/dev/block/mmcblk0p8	/data	ext4	noatime,nosuid,nodev,nomblk_io_submit,errors=panic	wait,encryptable=footer
-
-
-
-# Recovery only mount points
-/dev/block/mmcblk1p1  /sdcard     vfat defaults recoveryonly
-/dev/block/mmcblk1p2	/sdcard1		vfat defaults recoveryonly
-boot			            /boot			  emmc defaults recoveryonly
-recovery		          /recovery		emmc defaults recoveryonly
+/system     ext4      /dev/block/mmcblk0p3
+/data       ext4      /dev/block/mmcblk0p8
+/cache      ext4      /dev/block/mmcblk0p4
+/misc       emmc      /dev/block/mmcblk0p5
+/sdcard     vfat      /dev/block/mmcblk1p1    flags=display="Micro SDcard";storage;wipeingui;removable
+/boot       emmc      /dev/block/mmcblk0p2
+/recovery   emmc      /dev/block/mmcblk0p1
+/sd-ext     ext4      /dev/block/mmcblk1p2
+/usb_storage vfat     /dev/block/sda1         flags=display="USB_STORAGE";storage;wipeingui;removable
