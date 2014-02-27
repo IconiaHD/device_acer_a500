@@ -157,7 +157,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=8m
 
-PRODUCT_NAME := cm_a200
+PRODUCT_NAME := omni_a200
 PRODUCT_DEVICE := a200
 PRODUCT_BRAND := acer
 PRODUCT_MODEL := a200
