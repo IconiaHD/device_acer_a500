@@ -26,5 +26,10 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_FINGERPRINT="acer/a200_ww_gen1/picasso_e:4.0.3/IML74K/1329824557:user/release-keys" \
     PRIVATE_BUILD_DESC="a200_ww_gen1-user 4.0.3 IML74K 1329824557 release-keys"
 
+# Configure as xhdpi device to prevent breaking without mdpi drawables (copied from tf101)
+PRODUCT_AAPT_CONFIG := normal mdpi hdpi xhdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+
+
 # Bootanimation
 # PRODUCT_BOOTANIMATION := vendor/omni/prebuilt/common/bootanimation/800.zip
