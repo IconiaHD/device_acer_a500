@@ -137,6 +137,15 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
 ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.strictmode.visual=0
 
+# Set adb usable on boot
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.adb.secure=0 \
+    ro.debuggable=1
+
+ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
+ADDITIONAL_DEFAULT_PROPERTIES += ro.debuggable=1
+
+
 PRODUCT_CHARACTERISTICS := tablet
 
 # Bluetooth config file (IconiaHD project)
