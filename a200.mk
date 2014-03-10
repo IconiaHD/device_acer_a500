@@ -35,7 +35,6 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
     audio.primary.picasso_e \
-    hwcomposer.tegra \
     power.picasso_e \
     libaudioutils \
     libtinyalsa \
