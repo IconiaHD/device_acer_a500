@@ -32,4 +32,4 @@ PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 
 # Bootanimation
-# PRODUCT_BOOTANIMATION := vendor/omni/prebuilt/common/bootanimation/800.zip
+PRODUCT_BOOTANIMATION := vendor/omni/prebuilt/bootanimation/bootanimation.zip
