@@ -1,0 +1,34 @@
+# Release name
+PRODUCT_RELEASE_NAME := A200
+ROM_BUILDTYPE := IconiaHD
+
+
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/cm/config/common.mk)
+
+# Inherit device configuration
+$(call inherit-product, device/acer/a200/a200_cm.mk)
+
+## Device identifier. This must come after all inclusions
+PRODUCT_DEVICE       := a200
+PRODUCT_NAME         := cm_a200
+PRODUCT_BRAND        := Acer
+PRODUCT_MODEL        := A200
+PRODUCT_MANUFACTURER := Acer
+
+#Set build fingerprint / ID / Product Name ect.
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=picasso_e \
+    BUILD_FINGERPRINT="acer/a200_ww_gen1/picasso_e:4.0.3/IML74K/1329824557:user/release-keys" \
+    PRIVATE_BUILD_DESC="a200_ww_gen1-user 4.0.3 IML74K 1329824557 release-keys"
+
+# Configure as xhdpi device to prevent breaking without mdpi drawables (copied from tf101)
+PRODUCT_AAPT_CONFIG := normal mdpi hdpi xhdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+
+
+# Bootanimation
+PRODUCT_BOOTANIMATION := vendor/cm/prebuilt/common/bootanimation/800.zip
