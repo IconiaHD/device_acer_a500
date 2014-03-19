@@ -18,31 +18,41 @@
 USE_CAMERA_STUB := false
 
 # Platform
+TARGET_NO_RADIOIMAGE := true
 TARGET_BOARD_PLATFORM := tegra
 TARGET_TEGRA_VERSION := t20
+TARGET_BOOTLOADER_BOARD_NAME := picasso_e
+
+TARGET_NO_BOOTLOADER := true
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a
 TARGET_CPU_VARIANT := generic
-TARGET_ARCH_VARIANT_CPU := cortex-a9
-TARGET_ARCH_VARIANT_FPU := vfpv3-d16
-TARGET_ARCH := arm
 TARGET_CPU_SMP := true
+TARGET_ARCH := arm
+# Change to test tf101 config
+#TARGET_ARCH_VARIANT_CPU := cortex-a9
 
-ARCH_ARM_USE_NON_NEON_MEMCPY := true
-ARCH_ARM_HIGH_OPTIMIZATION := true
+TARGET_ARCH_VARIANT_FPU := vfpv3-d16
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
-TARGET_NO_BOOTLOADER := true
-TARGET_BOOTLOADER_BOARD_NAME := picasso_e
-TARGET_OTA_ASSERT_DEVICE := picasso_e,a200
-USE_ALL_OPTIMIZED_STRING_FUNCS := true
+# Change to test tf101 config
+#ARCH_ARM_USE_NON_NEON_MEMCPY := true
+
+ARCH_ARM_HIGH_OPTIMIZATION := true
+
+
+# Change to test tf101 config
+#TARGET_OTA_ASSERT_DEVICE := picasso_e,a200
+# Change to test tf101 config
+#USE_ALL_OPTIMIZED_STRING_FUNCS := true
+
 
 # kernel
 #TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.6
-#TARGET_KERNEL_SOURCE := kernel/acer/a200
-#TARGET_KERNEL_CONFIG := jellyplay_picasso_e_defconfig
-TARGET_PREBUILT_KERNEL := device/acer/a200/prebuilt/zImage
+TARGET_KERNEL_SOURCE := kernel/acer/a200
+TARGET_KERNEL_CONFIG := jellyplay_picasso_e_defconfig
+#TARGET_PREBUILT_KERNEL := device/acer/a200/prebuilt/zImage
 BOARD_KERNEL_CMDLINE :=
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_PAGE_SIZE := 0x00000800
@@ -151,4 +161,30 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE    := 367001600
 BOARD_USERDATAIMAGE_PARTITION_SIZE  := 13864271872
 BOARD_FLASH_BLOCK_SIZE              := 131072
 
+# SELinux policies
+POLICYVERS   := 24
+
+#BOARD_SEPOLICY_DIRS := \
+#   device/acer/a200/selinux
+
+#BOARD_SEPOLICY_UNION := \
+#    file_contexts \
+#    app.te \
+#    device.te \
+#    file.te \
+#    drmserver.te \
+#    genfs_contexts \
+#    init.te \
+#    media_app.te \
+#    release_app.te \
+#    mediaserver.te \
+#    platform_app.te \
+#    sensors_config.te \
+#    shared_app.te \
+#    surfaceflinger.te \
+#    system_app.te \
+#    system.te \
+#    wpa_socket.te \
+#    wpa.te \
+#    zygote.te
 
