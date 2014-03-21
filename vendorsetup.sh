@@ -22,4 +22,4 @@
 #
 #
 # add_lunch_combo full_a200-userdebug
-add_lunch_combo omni_a200-userdebug
+add_lunch_combo omni_a200-eng
