@@ -1,8 +1,10 @@
 #
 # system.prop for a200 
 #
-ro.opengles.version=196608
-ro.opengles.surface.rgb565=true
+# commented 2 following lines, to keep values declared into a200.mk
+#ro.opengles.version=196608
+#ro.opengles.surface.rgb565=true
+
 persist.sys.usb.config=mtp,adb 
 ro.sf.lcd_density=160 
 ro.setupwizard.mode=OPTIONAL 

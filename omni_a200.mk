@@ -1,7 +1,10 @@
 # Release name
 PRODUCT_RELEASE_NAME := A200
 ROM_BUILDTYPE := IconiaHD
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/omni-4.4-hwctest
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
@@ -34,4 +37,4 @@ PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 
 # Bootanimation
-# PRODUCT_BOOTANIMATION := vendor/omni/prebuilt/common/bootanimation/800.zip
+PRODUCT_BOOTANIMATION := vendor/omni/prebuilt/bootanimation/bootanimation.zip

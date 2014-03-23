@@ -35,7 +35,6 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
     audio.primary.picasso_e \
-    hwcomposer.tegra \
     power.picasso_e \
     libaudioutils \
     libtinyalsa \
@@ -126,6 +125,10 @@ PRODUCT_PROPERTY_OVERRIDES := \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=30 \
     ro.dinfo.radio=Wifi \
+    ro.bq.gpu_to_cpu_unsupported=1 \
+    debug.hwui.render_dirty_regions=false \
+    ro.opengles.version=131072 \
+	ro.opengles.surface.rgb565=true
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
