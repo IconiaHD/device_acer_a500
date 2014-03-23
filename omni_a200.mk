@@ -24,8 +24,8 @@ PRODUCT_MANUFACTURER := Acer
 #Set build fingerprint / ID / Product Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=picasso_e \
-    BUILD_FINGERPRINT="acer/a200_ww_gen1/picasso_e:4.0.3/IML74K/1329824557:user/release-keys" \
-    PRIVATE_BUILD_DESC="a200_ww_gen1-user 4.0.3 IML74K 1329824557 release-keys"
+    BUILD_FINGERPRINT="acer/a200_pa_cus1/picasso_e:4.4.2/KVT49L/1395572400:user/release-keys" \
+    PRIVATE_BUILD_DESC="a200_pa_cus1-user 4.4.2 KVT49L 1395572400 release-keys"
 
 # Configure as xhdpi device to prevent breaking without mdpi drawables (copied from tf101)
 PRODUCT_AAPT_CONFIG := normal mdpi hdpi xhdpi
