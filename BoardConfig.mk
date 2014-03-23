@@ -43,7 +43,7 @@ ARCH_ARM_HIGH_OPTIMIZATION := true
 
 
 # Change to test tf101 config
-#TARGET_OTA_ASSERT_DEVICE := picasso_e,a200
+TARGET_OTA_ASSERT_DEVICE := picasso_e,a200
 # Change to test tf101 config
 #USE_ALL_OPTIMIZED_STRING_FUNCS := true
 
@@ -51,7 +51,7 @@ ARCH_ARM_HIGH_OPTIMIZATION := true
 # kernel
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.6
 TARGET_KERNEL_SOURCE := kernel/acer/a200
-TARGET_KERNEL_CONFIG := jellyplay_picasso_e_defconfig
+TARGET_KERNEL_CONFIG := iconiahd_picasso_e_defconfig
 #TARGET_PREBUILT_KERNEL := device/acer/a200/prebuilt/zImage
 BOARD_KERNEL_CMDLINE :=
 BOARD_KERNEL_BASE := 0x10000000
