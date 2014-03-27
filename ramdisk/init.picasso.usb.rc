@@ -1,7 +1,7 @@
 on boot
 # Set USB manufacturer and product name
     write /sys/class/android_usb/android0/iManufacturer $ro.product.manufacturer
-    write /sys/class/android_usb/android0/iProduct "Acer Iconia Tab A200"
+    write /sys/class/android_usb/android0/iProduct "Acer Iconia Tab A500"
 
 # Used to disable USB when switching states
 on property:sys.usb.config=none

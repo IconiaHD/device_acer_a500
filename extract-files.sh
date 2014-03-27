@@ -1,7 +1,7 @@
 #/bin/sh
 
 VENDOR=acer
-DEVICE=a200
+DEVICE=a500
 
 OUTD=../../../vendor/$VENDOR/$DEVICE
 PROPD=$OUTD/proprietary

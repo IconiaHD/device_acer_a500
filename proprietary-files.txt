@@ -24,7 +24,7 @@ lib/hw/camera.tegra.so
 lib/hw/gps.tegra.so
 lib/hw/gralloc.tegra.so
 lib/hw/hwcomposer.tegra.so
-lib/hw/lights.picasso_e.so
+lib/hw/lights.picasso.so
 lib/hw/sensors.tegra.so
 lib/libardrv_dynamic.so
 lib/libasound.so

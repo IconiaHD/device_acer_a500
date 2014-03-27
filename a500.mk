@@ -21,7 +21,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/zImage:kernel
 
 # inherit proprietary files
-$(call inherit-product-if-exists, vendor/acer/a200/a200-vendor.mk)
+$(call inherit-product-if-exists, vendor/acer/a500/a500-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, build/target/product/full_base.mk)
 $(call inherit-product-if-exists, framework/base/data/videos/VideoPackage2.mk)
@@ -34,8 +34,8 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     audio.a2dp.default \
     audio.usb.default \
-    audio.primary.picasso_e \
-    power.picasso_e \
+    audio.primary.picasso \
+    power.picasso \
     libaudioutils \
     libtinyalsa \
     l2ping \
@@ -53,15 +53,16 @@ PRODUCT_PACKAGES += \
 
 # ramdisk
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/ramdisk/init.picasso_e.usb.rc:root/init.picasso_e.usb.rc \
-    $(LOCAL_PATH)/ramdisk/ueventd.picasso_e.rc:root/ueventd.picasso_e.rc \
-    $(LOCAL_PATH)/ramdisk/init.picasso_e.rc:root/init.picasso_e.rc \
-    $(LOCAL_PATH)/ramdisk/fstab.picasso_e:root/fstab.picasso_e 
+    $(LOCAL_PATH)/ramdisk/init.picasso.usb.rc:root/init.picasso.usb.rc \
+    $(LOCAL_PATH)/ramdisk/ueventd.picasso.rc:root/ueventd.picasso.rc \
+    $(LOCAL_PATH)/ramdisk/init.picasso.rc:root/init.picasso.rc \
+    $(LOCAL_PATH)/ramdisk/fstab.picasso:root/fstab.picasso 
     
 # firmware
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/bcmdhd.cal:system/vendor/firmware/bcmdhd.cal \
     $(LOCAL_PATH)/prebuilt/vendor/firmware/fw_bcmdhd_p2p.bin:system/vendor/firmware/fw_bcmdhd_p2p.bin \
+	$(LOCAL_PATH)/prebuilt/bin/wifimacwriter:system/bin/wifimacwriter \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
 
 # hw permissions
@@ -97,7 +98,8 @@ PRODUCT_COPY_FILES += \
 
 # keychars/layout
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/usr/idc/acer-touch.idc:system/usr/idc/acer-touch.idc \
+    $(LOCAL_PATH)/prebuilt/usr/idc/atmel-maxtouch.idc:system/usr/idc/atmel-maxtouch.idc \
+    $(LOCAL_PATH)/prebuilt/usr/keylayout/acer-dock.kl:system/usr/keylayout/acer-dock.kl \
     $(LOCAL_PATH)/prebuilt/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     $(LOCAL_PATH)/prebuilt/usr/keychars/Acer-AK00LB.kcm:system/usr/keychars/Acer-AK00LB.kcm \
     $(LOCAL_PATH)/prebuilt/usr/keylayout/Acer-AK00LB.kl:system/usr/keylayout/Acer-AK00LB.kl \
@@ -154,7 +156,7 @@ PRODUCT_CHARACTERISTICS := tablet
 
 # Bluetooth config file (IconiaHD project)
 PRODUCT_COPY_FILES += \
-    device/acer/a200/bluetooth/main.nonsmartphone.conf:system/etc/bluetooth/main.conf \
+    device/acer/a500/bluetooth/main.nonsmartphone.conf:system/etc/bluetooth/main.conf \
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -170,7 +172,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=8m
 
-PRODUCT_NAME := omni_a200
-PRODUCT_DEVICE := a200
+PRODUCT_NAME := omni_a500
+PRODUCT_DEVICE := a500
 PRODUCT_BRAND := acer
-PRODUCT_MODEL := a200
+PRODUCT_MODEL := a500

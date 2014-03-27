@@ -1,4 +1,4 @@
-import init.picasso_e.usb.rc
+import init.picasso.usb.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -48,7 +48,7 @@ on init
     # mount tmpfs tmpfs /storage mode=0050,uid=0,gid=1028
 
 on fs
-    mount_all /fstab.picasso_e
+    mount_all /fstab.picasso
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
     setprop ro.crypto.fuse_sdcard true
 
@@ -160,21 +160,16 @@ on boot
     setprop net.tcp.buffersize.hsdpa 4096,87380,524288,4096,87380,524288
     setprop net.tcp.buffersize.hsupa 4096,87380,524288,4096,87380,524288
 
-# Write Wi-Fi Mac A200-mod
-#service wifimacwriter /system/bin/wifimacwriter
-#    class main
-#    oneshot
+# Write Wi-Fi Mac 
+service wifimacwriter /system/bin/wifimacwriter
+    class main
+    oneshot
 
 # make binder state/stats readable by root only, so that they are not
 # captured by default in bugreports
     chmod 0400 /sys/kernel/debug/binder/stats
     chmod 0400 /sys/kernel/debug/binder/state
 
-# Broadcom gps A200-mod
-on property:ro.dinfo.radio=Wifi
-    write /sys/class/gpio/export 203
-    write /sys/class/gpio/gpio203/value 0
-    write /sys/class/gpio/gpio203/direction out	
 	
 # Ericsson MBM
 on property:ro.dinfo.radio=3G
@@ -198,7 +193,7 @@ on property:ro.carrier=wifi-only
 
 
 
-#   A200 mod	
+#   
 service wpa_supplicant /system/bin/wpa_supplicant \
     -Dnl80211 -iwlan0 -puse_p2p_group_interface=1 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin -O/data/misc/wifi/sockets -g@android:wpa_wlan0
 #   -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin
@@ -289,14 +284,7 @@ service bugreport /system/bin/dumpstate -d -p -B \
 service sdcard /system/bin/sdcard /data/media 1023 1023
     class late_start
 
-#BCM A200-mod
-service hciattach /system/bin/brcm_patchram_plus --enable_hci \
-    --baudrate 3000000 --patchram /etc/firmware/bcm4329.hcd \
-    --enable_lpm /dev/ttyHS2
-    class main
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled	
+
 	
 # Force download of long term orbit data (lto.dat)
 service gps-lto-dat /system/bin/logwrapper /system/bin/gps-update
