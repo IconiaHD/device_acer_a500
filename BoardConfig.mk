@@ -52,11 +52,9 @@ TARGET_OTA_ASSERT_DEVICE := picasso,a500
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.6
 TARGET_KERNEL_SOURCE := kernel/acer/a500
 
-# Use this config for 'full' kernel
-TARGET_KERNEL_CONFIG := iconiahd_picasso_defconfig
+# Use this config for kernel
+TARGET_KERNEL_CONFIG := jellyplay_defconfig
 
-# Use this config for 'light' kernel, usable for recovery
-#TARGET_KERNEL_CONFIG := iconiahd_picasso_recovery_defconfig
 
 #TARGET_PREBUILT_KERNEL := device/acer/a500/prebuilt/zImage
 BOARD_KERNEL_CMDLINE :=
@@ -68,7 +66,7 @@ BOARD_PAGE_SIZE := 0x00000800
 #TARGET_RECOVERY_FSTAB := device/acer/a500/recovery/recovery.fstab
 TARGET_RECOVERY_FSTAB := device/acer/a500/ramdisk/fstab.picasso
 #RECOVERY_FSTAB_VERSION := 2
-TARGET_PREBUILT_RECOVERY_KERNEL := device/acer/a500/recovery/kernel
+TARGET_PREBUILT_RECOVERY_KERNEL := device/acer/a500/prebuilt/zImage
 
 # TWRP Settings
 DEVICE_RESOLUTION := 1280x800
