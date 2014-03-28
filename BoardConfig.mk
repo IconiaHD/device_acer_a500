@@ -66,7 +66,7 @@ BOARD_PAGE_SIZE := 0x00000800
 TARGET_RECOVERY_FSTAB := device/acer/a500/recovery/recovery.fstab
 #TARGET_RECOVERY_FSTAB := device/acer/a500/ramdisk/fstab.picasso
 
-# the following variable has no effect : misnamed ?
+# Warning : If you change this, you've to clean before rebuild !
 RECOVERY_FSTAB_VERSION := 1
 
 TARGET_PREBUILT_RECOVERY_KERNEL := device/acer/a500/prebuilt/zImage
