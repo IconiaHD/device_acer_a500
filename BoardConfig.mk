@@ -67,7 +67,7 @@ TARGET_RECOVERY_FSTAB := device/acer/a500/recovery/recovery.fstab
 #TARGET_RECOVERY_FSTAB := device/acer/a500/ramdisk/fstab.picasso
 
 # Warning : If you change this, you've to clean before rebuild !
-RECOVERY_FSTAB_VERSION := 1
+RECOVERY_FSTAB_VERSION := 2
 
 TARGET_PREBUILT_RECOVERY_KERNEL := device/acer/a500/prebuilt/zImage
 
