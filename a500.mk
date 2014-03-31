@@ -63,6 +63,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/bcmdhd.cal:system/vendor/firmware/bcmdhd.cal \
     $(LOCAL_PATH)/prebuilt/vendor/firmware/fw_bcmdhd_p2p.bin:system/vendor/firmware/fw_bcmdhd_p2p.bin \
 	$(LOCAL_PATH)/prebuilt/bin/wifimacwriter:system/bin/wifimacwriter \
+    $(LOCAL_PATH)/prebuilt/bin/gps-update:system/bin/gps-update \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
 
 # hw permissions
