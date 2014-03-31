@@ -103,7 +103,7 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 
 # Display
 USE_OPENGL_RENDERER    := true
-#BOARD_EGL_CFG          := device/acer/a500/prebuilt/etc/egl.cfg
+BOARD_EGL_CFG          := device/acer/a500/prebuilt/etc/egl.cfg
 BOARD_NO_ALLOW_DEQUEUE_CURRENT_BUFFER := true
 BOARD_USE_SKIA_LCDTEXT := true
 BOARD_USES_HGL := true
