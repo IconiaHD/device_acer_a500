@@ -13,9 +13,8 @@
 /dev/block/mmcblk0p4    /cache     ext4    defaults recoveryonly
 /dev/block/mmcblk0p6    /flexrom   ext4    defaults recoveryonly
 /dev/block/mmcblk0p8    /data      auto    defaults recoveryonly
-/dev/block/mmcblk1p1    auto       vfat    defaults recoveryonly  voldmanaged=sdcard:auto
+/dev/block/mmcblk1p1    /mnt/sdcard vfat   defaults recoveryonly
 
 # vold-managed volumes ("block device" is actually a sysfs devpath)
-/devices/platform/sdhci-tegra.2/mmc_host/mmc1    auto   auto defaults voldmanaged=sdcard1:auto
-/devices/platform/tegra-ehci.2                   auto   auto defaults voldmanaged=usbdisk0:auto
-
+/devices/platform/sdhci-tegra.2/mmc_host/mmc1  auto  auto  defaults voldmanaged=sdcard1:auto
+/devices/platform/tegra-ehci.2                 auto  auto  defaults voldmanaged=usbdisk0:auto

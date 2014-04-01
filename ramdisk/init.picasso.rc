@@ -12,8 +12,6 @@ on init
     #mkdir /storage/usbdisk0 0000 system system
 
     #External storage directories
-    mkdir /mnt/media_rw/sdcard 0700 media_rw media_rw
-    mkdir /storage/sdcard 0700 root root
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     mkdir /storage/sdcard1 0700 root root
     mkdir /mnt/media_rw/usbdisk0 0700 media_rw media_rw
@@ -54,8 +52,8 @@ on fs
 
     symlink /dev/block/platform/sdhci-tegra.2/by-name/logo.bin /dev/block/platform/sdhci-tegra.2/by-name/logo
 
-    # virtual sdcard daemon running as media_rw (1023)
-    service sdcard /system/bin/sdcard /data/media /mnt/shell/emulated 1023 1023
+# virtual sdcard daemon running as media_rw (1023)
+service sdcard /system/bin/sdcard /data/media /mnt/shell/emulated 1023 1023
     class late_start
 
 on post-fs-data
@@ -347,10 +345,6 @@ service tf_daemon /system/bin/tf_daemon -storageDir /data/tf -d
 on property:tf.enable=y
     mkdir /data/tf
     start tf_daemon
-
-service fuse_sdcard /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard /storage/sdcard
-    class late_start
-    disabled
 
 service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
     class late_start

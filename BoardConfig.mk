@@ -63,8 +63,8 @@ BOARD_PAGE_SIZE := 0x00000800
 
 # Recovery
 #TARGET_RECOVERY_KERNEL := device/acer/a500/recovery/recovery_kernel
-TARGET_RECOVERY_FSTAB := device/acer/a500/recovery/recovery.fstab
-#TARGET_RECOVERY_FSTAB := device/acer/a500/ramdisk/fstab.picasso
+#TARGET_RECOVERY_FSTAB := device/acer/a500/recovery/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/acer/a500/ramdisk/fstab.picasso
 
 # Warning : If you change this, you've to clean before rebuild !
 RECOVERY_FSTAB_VERSION := 2
