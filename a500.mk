@@ -130,7 +130,8 @@ PRODUCT_PROPERTY_OVERRIDES := \
     ro.bq.gpu_to_cpu_unsupported=1 \
     debug.hwui.render_dirty_regions=false \
     ro.opengles.version=131072 \
-	ro.opengles.surface.rgb565=true
+	ro.opengles.surface.rgb565=true \
+	ro.hwui.use_gpu_pixel_buffers=false
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -145,11 +146,10 @@ ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.strictmode.visual=0
 
 # Set adb usable on boot
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.adb.secure=0 \
-    ro.debuggable=1
+    ro.zygote.disable_gl_preload=true
 
-ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
-ADDITIONAL_DEFAULT_PROPERTIES += ro.debuggable=1
+# ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
+# ADDITIONAL_DEFAULT_PROPERTIES += ro.debuggable=1
 
 
 PRODUCT_CHARACTERISTICS := tablet
