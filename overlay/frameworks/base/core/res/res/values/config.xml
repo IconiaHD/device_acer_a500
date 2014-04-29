@@ -196,15 +196,19 @@
     <!-- Separate software navigation bar required on this device. -->             
     <bool name="config_showNavigationBar">true</bool>
 
-   <!--  Maximum number of supported users -->
+    <!--  Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">8</integer>
 
-   <!-- Treat the on screen buttons as hardware keys? -->
+    <!-- Treat the on screen buttons as hardware keys? -->
     <integer name="config_deviceHardwareKeys">7</integer>
 
-   <!-- Package name(s) containing location provider support -->
+    <!-- Package name(s) containing location provider support -->
     <string-array name="config_locationProviderPackageNames" translatable="false">
+        <!-- The standard AOSP fused location provider -->
         <item>com.android.location.fused</item>
+        <!-- Legacy Google provider - consider removing -->
         <item>com.google.android.location</item>
+        <!-- GMS (gapps) provider for 4.4 and above-->
+        <item>com.google.android.gms</item>
     </string-array>
 </resources>
